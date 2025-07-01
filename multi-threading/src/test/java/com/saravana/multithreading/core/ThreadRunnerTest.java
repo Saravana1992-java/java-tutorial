@@ -1,4 +1,4 @@
-package com.saravana.multithreading.basic;
+package com.saravana.multithreading.core;
 
 import org.junit.jupiter.api.Test;
 

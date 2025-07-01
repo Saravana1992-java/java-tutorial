@@ -1,16 +1,15 @@
-package com.saravana.multithreading.basic;
+package com.saravana.multithreading.core;
 
 /*
- * Use Runnable when:
- * Your class already extends another class (Java does not support multiple inheritance).
- * You want to separate the task (logic) from the thread management.
- * You want to share the same task among multiple threads.
+ * Use Thread when:
+ * You want to override other Thread methods or customize the thread itself.
+ * You don’t need to extend any other class.
  */
 
-public class SOCThreadRunnable implements Runnable {
+public class ThreadRunner extends Thread {
     private String threadName;
 
-    public SOCThreadRunnable(String name) {
+    public ThreadRunner(String name) {
         this.threadName = name;
     }
 
@@ -27,5 +26,4 @@ public class SOCThreadRunnable implements Runnable {
         }
         System.out.println("Thread " + threadName + " has finished execution");
     }
-
 }

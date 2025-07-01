@@ -1,4 +1,4 @@
-package com.saravana.multithreading.basic;
+package com.saravana.multithreading.core;
 
 public class ThreadPriorityDemo extends Thread {
     public void run() {
