@@ -46,7 +46,7 @@ A coroutine is a lightweight unit of execution that can suspend and resume its w
 - **Concurrency** is about dealing with lots of things at once (structure).
 - **Parallelism** is about doing lots of things at once (execution).
 
-# Mutual exclusion (lock)
+# Mutual exclusion (lock on shared resource)
 Mutual exclusion is a concurrency control principle that ensures only one thread or process can access a shared resource or critical section at a time. This prevents race conditions and data inconsistency when multiple threads try to read or modify shared data simultaneously.
 
 # Preemptive scheduling
