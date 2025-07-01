@@ -7,11 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import com.saravana.multithreading.basic.AtomicCounter;
-import com.saravana.multithreading.basic.ReentrantLockCounter;
-import com.saravana.multithreading.basic.SynchronizedCounter;
-import com.saravana.multithreading.basic.VolatileCounter;
-
 public class CounterTest {
     int iterations = 1_000_000;
     int threadCount = 10;

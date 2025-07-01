@@ -2,8 +2,6 @@ package com.saravana.multithreading.basic;
 
 import org.junit.jupiter.api.Test;
 
-import com.saravana.multithreading.basic.SOCThreadRunnable;
-
 public class SOCThreadRunnableTest {
 
     @Test
