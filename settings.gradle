@@ -11,4 +11,9 @@ plugins {
 }
 
 rootProject.name = 'java-tutorial'
-include('multi-threading')
+include('1-ProgrammingParadigm')
+include('2-core')
+include('3-generics')
+include('4-collections')
+include('5-multi-threading')
+include('6-advanced')
