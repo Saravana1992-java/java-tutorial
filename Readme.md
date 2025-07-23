@@ -14,16 +14,16 @@ This GitHub project offers a comprehensive collection of Java topics, spanning f
 
 flowchart TB
     Root["java-tutorial"]
-    Root --> OOPS["<a href='./1-oops/ProgrammingParadigm.md/'>1-oops</a>"]
-    Root --> OOAD["<a href='./2-ooad/ooad.md'>2-ooad</a>"]
-    Root --> Generics["<a href='./3-generics/JavaGenerics.md'>3-generics</a>"]
-    Root --> Collections["<a href='./4-collections/JavaCollections.md'>4-collections</a>"]
-    Root --> MultiThreading["<a href='./5-multi-threading/ConcurrantProgramming.md'>5-multi-threading</a>"]
-    Root --> Advanced["<a href='./6-advanced/AdvancedJavaProgramming.d'>6-advanced</a>"]
+    Root --> OOPS["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>1-oops</a>"]
+    Root --> OOAD["<a href='./Saravana1992-java/java-tutorial/blob/main/2-ooad/ooad.md'>2-ooad</a>"]
+    Root --> Generics["<a href='./Saravana1992-java/java-tutorial/blob/main/3-generics/JavaGenerics.md'>3-generics</a>"]
+    Root --> Collections["<a href='./Saravana1992-java/java-tutorial/blob/main/4-collections/JavaCollections.md'>4-collections</a>"]
+    Root --> MultiThreading["<a href='./Saravana1992-java/java-tutorial/blob/main/5-multi-threading/ConcurrantProgramming.md'>5-multi-threading</a>"]
+    Root --> Advanced["<a href='./Saravana1992-java/java-tutorial/blob/main/6-advanced/AdvancedJavaProgramming.d'>6-advanced</a>"]
 ```
 
 ```mermaid
 flowchart TB
-    OOPS["<a href='./1-oops/ProgrammingParadigm.md/'>Next</a>"]
+    OOPS["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Next</a>"]
 ```
 ---
