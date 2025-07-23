@@ -1,4 +1,6 @@
-# Thread (True parallelism)
+# Concurrant Programming
+
+## Thread (True parallelism)
 A thread in Java is a lightweight unit of execution within a process. It allows a program to perform multiple tasks concurrently. Each thread runs independently but shares the same memory and resources of the process.
 
 ### User thread

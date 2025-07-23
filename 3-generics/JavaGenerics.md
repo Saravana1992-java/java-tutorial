@@ -1,3 +1,4 @@
+# Java Generics
 ---
 
 ```mermaid
