@@ -21,13 +21,13 @@ When you develop and run a program, the following steps occur:
 
 ### 1. **Compilation**
 - The source code (written in a programming language like Java, C, etc.) is translated by a compiler into machine code or an intermediate form (such as Java bytecode).
-- This step checks for syntax errors and generates an executable file or bytecode.
+- This step checks for syntax errors and generates an executable file or bytecode. Typically **one time process**.
 
 ### 2. **Loading**
-- The compiled code and required data are loaded from storage (such as a hard drive) into RAM (main memory).
+- The compiled code and required data are **loaded** from storage (such as a hard drive) into RAM (main memory). Typically **one time process**.
 
 ### 3. **Processing (Execution)**
-- The CPU fetches instructions and data from RAM, processes them (performs calculations, logic, etc.), and updates data in memory as needed.
+- The CPU **fetches** instructions and data from RAM, processes them (performs calculations, logic, etc.), and updates data in memory as needed. **Real-time** process.
 
 ### 4. **Output**
 - The CPU sends results to output devices, such as displaying text in the console, rendering graphics on the screen, or writing to files.
@@ -36,31 +36,26 @@ When you develop and run a program, the following steps occur:
 
 ### 📊 Pictorial Representation
 
-```
-+-------------------+        +-------------------+        +----------------------+
-|   Source Code     |        |   Compiled Code   |        |                      |
-|  (e.g., .java)    | -----> | (e.g., .class)    | -----> |      RAM             |
-+-------------------+        +-------------------+        | (Loaded Program)     |
-        |                            |                    +----------------------+
-        |      Compilation           |      Loading                ^
-        +--------------------------->|<---------------------------+
-                                                           |
-                                                           v
-                                                +----------------------+
-                                                |        CPU           |
-                                                |   (Executes Logic)   |
-                                                +----------------------+
-                                                           |
-                                                           v
-                                                +----------------------+
-                                                |   Output Devices     |
-                                                | (Console, Graphics,  |
-                                                |  Files, Network, etc)|
-                                                +----------------------+
-```
+```mermaid
+flowchart LR
+    src("`Source Code (e.g., .java)`")
+    byteCode("`Compiled Code (e.g., .class)`")
+    memory[("`RAM (loaded byte code)`")]
+    cpu("`cpu core (Executes Logic)`")
+    output("`output channels (Console, GUI, Files, Network etc)`")
 
+    src e1@ == Compilation ==> byteCode
+    byteCode e2@ == Loading ==> memory
+    cpu e3@ == Fetching ==> memory
+    cpu e4@ == Result ==> output
+
+    e1@{ animate: false }
+    e2@{ animate: false }
+    e3@{ animate: true }
+    e4@{ animate: true }
+
+```
 ---
-
 
 ## 🧩 The Core Components of Programming
 
@@ -119,7 +114,7 @@ When you develop and run a program, the following steps occur:
     Functions typically includes to implement any logics,
     1. Conditional statements ``` if(expression)...else ```
     2. Decission making statments ``` switch(options)... case option:```
-    3. looping ``` while(expression) & do...while(expression)```,  ``` for()```, ``` iterator ``` 
+    3. looping ``` while(expression) & do...while(expression)```,  ``` for()```, ``` iterator. ``` 
 
 ### 🔧 Basic Structure
 
@@ -135,7 +130,7 @@ void transact(Account* fromAccount, Account* toAccount, double amount) {
         toAccount->balance += amount;
     }
 ```
--  In Java (and other object-oriented languages), a method is a function that is defined inside a class and operates on instances (objects) of that class. 
+-  In Java (and other object-oriented languages), a **method** is a function that is defined inside a class and operates on instances (objects) of that class. 
 
 ``` java
 class Account {
@@ -152,9 +147,9 @@ class Account {
 ---
 
 ## 🧠 Programming Paradigms?
-For simple applications, such as a calculator, a single file may be sufficient to implement the required data and logic (function).
+For simple applications, such as a calculator, a single file may be sufficient to implement the required data and logic (function) maybe within a day.
 
-As software systems grow in complexity, such as in banking or insurance applications, it becomes essential to follow established programming paradigms that guide the design and structure of programs.
+As software systems grow in complexity, such as in banking or insurance applications, it becomes essential to follow a structured process (**SDLC**) to manage an entire life cycle of a software such as analyse, design, develop, test, and maintain high-quality software ([learn more](SDLC.md) and established programming paradigms that guide the design and structure of programs.
 
 ---
 
@@ -202,68 +197,7 @@ class LoggingAspect {
 
 **Summary:**  
 - **Procedural:** Focuses on functions and procedures; data and logic are separate. Ex, C.
-- **OOPS:** Combines data and behavior in classes; supports encapsulation and reusability. Ex, Java.
+- **OOPS:** Combines data and behavior in classes; supports encapsulation and reusability. Ex, Java ([learn more](PlatformIndependance.md))
 - **AOP:** Separates cross-cutting concerns (like logging, security) into reusable. Ex, Spring AOP module.
 
 ---
-## Java
-**Java** is a **high-level**, **object-oriented**, **platform-independent** programming language developed by Sun Microsystems (now owned by Oracle). It is widely used for building **cross-platform** applications, from desktop and web to mobile and enterprise systems. 
-
-# Platform independance
-
-**Platform independence** in Java means that Java programs can run on any operating system or hardware platform without modification. This is achieved through the use of the Java Virtual Machine (JVM).
-
-### How Java Achieves Platform Independence
-
-- **Write Once (JDK), Run Anywhere (JVM):**  
-  Java source code is compiled into an intermediate form called **bytecode** (`.class` files), not directly into machine code for a specific platform.
-
-- **Java Virtual Machine (JVM):**  
-  The JVM is available for many operating systems (Windows, Linux, macOS, etc.). It interprets or compiles the bytecode into native machine code for the underlying platform at runtime.
-
-
-### Illustration
-
-```
-Java Source Code (.java)
-        |
-        v
-Java Compiler (javac)
-        |
-        v
-Java Bytecode (.class)
-        |
-        v
-+-----------------------------+
-|   JVM on Windows            |
-|   JVM on Linux              |
-|   JVM on macOS              |
-+-----------------------------+
-        | ClassLoader
-        v
-+-----------------------------+
-|      JVM Memory (RAM)       |
-|   (Loaded Bytecode)         |
-+-----------------------------+
-        |
-        v
-   [JIT Compiler]
-        |
-        v
-+-----------------------+
-|         CPU           |
-| Executes machine code |
-+-----------------------+
-        |
-        v
-+-------------+
-|   Output    |
-+-------------+
-```
-
-- The **ClassLoader** loads bytecode into the JVM's memory (RAM).
-- The **JIT compiler** (part of the JVM) translates frequently used bytecode from JVM memory into native machine code, just before execution.
-- The **CPU** executes the machine code produced by the JIT.
-- Output is produced and sent to the appropriate device (console, GUI, files, network (api response))
-### Bonus
-Java seperates **Compilation (Compile time)** and **Execution (Run time)** by it's platform independance feature, which plays an important role in designing a better software in OOPS paradigm. [learn more](CompileTimeVsRuntime.md)
