@@ -203,10 +203,10 @@ class LoggingAspect {
 ---
 
 ```mermaid
-flowchart RL
+flowchart TD
     README["<a href='./Saravana1992-java/java-tutorial/blob/main/Readme.md/'>Previous</a>"]
 
-    OOPS["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/OOPs.md/'>Next</a>"]
+    OOPS["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/OOPS.md/'>Next</a>"]
 
 ```
 ---
