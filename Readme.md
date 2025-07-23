@@ -22,6 +22,8 @@ flowchart LR
     Root --> Advanced["<a href='./Saravana1992-java/java-tutorial/blob/main/6-advanced/AdvancedJavaProgramming.md'>6-advanced</a>"]
 ```
 
+---
+
 ```mermaid
 flowchart RL
     OOPS["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Next</a>"]
