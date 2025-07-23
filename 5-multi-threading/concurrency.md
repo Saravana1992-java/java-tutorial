@@ -97,3 +97,14 @@ Callable<Integer> task = () -> {
 **Note:**  
 - `shutdown()` does not kill threads immediately; it lets running and queued tasks finish.
 - `Callable` allows tasks to return results and throw checked exceptions, unlike `Runnable`.
+
+---
+
+```mermaid
+flowchart TD
+    MT(["<a href='./Saravana1992-java/java-tutorial/blob/main/5-multi-threading/ConcurrantProgramming.md/'>Previous</a>"])
+
+    ADV(["<a href='./Saravana1992-java/java-tutorial/blob/main/6-advanced/AdvancedJavaProgramming.md/'>Next</a>"])
+
+```
+---

@@ -132,3 +132,12 @@ flowchart LR
 ### Bonus
 Java separates compilation (**compile time**) from execution (**run time**) through its platform independence feature—enabled by **bytecode** and the **JVM**. This distinction is fundamental in designing robust software within the Object-Oriented Programming (OOP) paradigm.
  ([learn more](CompileTimeVsRuntime.md))
+
+ ---
+
+```mermaid
+flowchart TD
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Previous</a>"])
+
+```
+---

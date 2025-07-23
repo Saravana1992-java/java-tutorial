@@ -60,5 +60,11 @@ UML diagrams are broadly classified into:
 
 ---
 
- 
+```mermaid
+flowchart TD
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/OOPS.md/'>Previous</a>"])
 
+    SOLID(["<a href='./Saravana1992-java/java-tutorial/blob/main/2-ooad/SOLID.md/'>Next</a>"])
+
+```
+---

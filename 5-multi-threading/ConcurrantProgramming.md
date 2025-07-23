@@ -308,3 +308,14 @@ public void task() {
 ## Summary
 
 Starvation happens when a thread is continuously denied access to resources, preventing it from making progress. Prevent it by using fair locks, balanced resource allocation, and careful thread design.
+
+---
+
+```mermaid
+flowchart TD
+    COL(["<a href='./Saravana1992-java/java-tutorial/blob/main/4-collections/JavaCollections.md/'>Previous</a>"])
+
+    MT(["<a href='./Saravana1992-java/java-tutorial/blob/main/5-multi-threading/concurrency.md/'>Next</a>"])
+
+```
+---

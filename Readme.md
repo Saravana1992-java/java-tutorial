@@ -26,6 +26,6 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    OOPS["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Next</a>"]
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Next</a>"])
 ```
 ---

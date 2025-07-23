@@ -51,3 +51,13 @@ public class Main {
 **Summary:**  
 OOPS helps in building modular, reusable, and maintainable software by modeling real-world entities as objects and organizing code using the principles of encapsulation, abstraction, inheritance. Java is based on OOPS.
 
+---
+
+```mermaid
+flowchart TD
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Previous</a>"])
+
+    OOAD(["<a href='./Saravana1992-java/java-tutorial/blob/main/2-ooad/OOAD.md/'>Next</a>"])
+
+```
+---
