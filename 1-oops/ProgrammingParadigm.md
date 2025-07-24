@@ -149,10 +149,10 @@ class Account {
 ```
 ---
 
-## 🧠 Programming Paradigms?
+## 🧠 Programming Paradigm
 For simple applications, such as a calculator, a single file may be sufficient to implement the required data and logic (function) maybe within a day.
 
-As software systems grow in complexity, such as in banking or insurance applications, it becomes essential to follow a structured process (**SDLC**) to manage an entire life cycle of a software such as analyse, design, develop, test, and maintain high-quality software ([learn more](SDLC.md) and established programming paradigms that guide the design and structure of programs.
+As software systems grow in complexity, such as in banking or insurance applications, it becomes essential to follow a structured process ([SDLC](SDLC.md)) to manage an entire life cycle of a software such as analyse, design, develop, test, and maintain high-quality software and established programming paradigms that guide the design and structure of programs.
 
 ---
 
@@ -199,9 +199,9 @@ class LoggingAspect {
 ---
 
 **Summary:**  
-- **Procedural:** Focuses on functions and procedures; data and logic are separate. Ex, C.
-- **OOPS:** Combines data and behavior in classes; supports encapsulation and reusability. Ex, Java ([learn more](PlatformIndependance.md))
-- **AOP:** Separates cross-cutting concerns (like logging, security) into reusable. Ex, Spring AOP module.
+- **Procedural:** Focuses on functions and procedures; data ``` struct ``` and logic ``` function ``` are separate. Ex., C.
+- **OOPS:** Combines data ``` field ``` and behavior ``` method ```in classes; supports encapsulation and reusability. Ex., [Java](PlatformIndependance.md)
+- **AOP:** Separates cross-cutting concerns (like logging, security) into reusable. Ex., Spring AOP module.
 
 ---
 

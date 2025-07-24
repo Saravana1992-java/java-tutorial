@@ -1,6 +1,6 @@
 # Object Oriented Programming (OOPS)
 
-**Object Oriented Programming (OOPS)** is a programming paradigm that organizes software design around data, or objects, rather than functions and logic. Objects are instances of classes, which encapsulate both data (attributes) and behavior (methods).
+**Object Oriented Programming (OOPS)** is a programming paradigm that organizes software design around data, or objects, rather than functions (logic). Objects are instances of classes, which encapsulate both data (attributes) and behavior (methods).
 
 ## Key Principles of OOPS
 
@@ -39,18 +39,12 @@ class SavingsAccount extends Account {
 // Encapsulation and Object creation
 public class Main {
     public static void main(String[] args) {
-        Account myAccount = new SavingsAccount(); // Polymorphism. calls displayBalance() version of SavingsAccount not Account  
+        Account myAccount = new SavingsAccount(); // Polymorphism. calls displayBalance() implemented in SavingsAccount class not Account class.
         myAccount.accountNumber = "123456";
         myAccount.balance = 5000.0;
         ((SavingsAccount) myAccount).interestRate = 3.5;
         myAccount.displayBalance(); // Output: Savings Account Balance: 5000.0, Interest Rate:
 ```
-
----
-
-**Summary:**  
-OOPS helps in building modular, reusable, and maintainable software by modeling real-world entities as objects and organizing code using the principles of encapsulation, abstraction, inheritance. Java is based on OOPS.
-
 ---
 
 ```mermaid
