@@ -71,7 +71,7 @@ SDLC typically consists of the following key phases:
 
 ```mermaid
 flowchart TD
-    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Previous</a>"])
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-programming-paradigm/ProgrammingParadigm.md/'>Previous</a>"])
 
 ```
 ---

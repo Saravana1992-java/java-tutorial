@@ -11,8 +11,8 @@ plugins {
 }
 
 rootProject.name = 'java-tutorial'
-include('1-oops')
-include('2-ooad')
+include('1-programming-paradigm')
+include('2-system-design')
 include('3-generics')
 include('4-collections')
 include('5-multi-threading')

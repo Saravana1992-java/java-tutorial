@@ -61,9 +61,9 @@ OOAD is a methodical approach to software development that combines object-orien
 
 ```mermaid
 flowchart TD
-    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/OOPS.md/'>Previous</a>"])
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-programming-paradigm/OOPS.md/'>Previous</a>"])
 
-    SOLID(["<a href='./Saravana1992-java/java-tutorial/blob/main/2-ooad/SOLID.md/'>Next</a>"])
+    SOLID(["<a href='./Saravana1992-java/java-tutorial/blob/main/2-system-design/SOLID.md/'>Next</a>"])
 
 ```
 ---

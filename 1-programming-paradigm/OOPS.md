@@ -1,6 +1,6 @@
 # Object Oriented Programming (OOPS)
 
-**Object Oriented Programming (OOPS)** is a programming paradigm that organizes software design around data, or objects, rather than functions (logic). Objects are instances of classes, which encapsulate both data (attributes) and behavior (methods).
+**Object Oriented Programming (OOPS)** is one of a programming paradigm that organizes software design around data, or objects, rather than functions (logic). Objects are instances of classes, which encapsulate both data (attributes) and behavior (methods).
 
 ## Key Principles of OOPS
 
@@ -8,7 +8,7 @@
 |-----------------|----------------------------------------------------------------------------------------------|
 | **Class**       | ```Class```ification of related attributes (fields) and behaviors (methods). A blueprint for creating objects.      |
 | **Object**      | An instance ``` new ``` of a class. Represents a real-world entity with state and behavior.              |
-| **Encapsulation** | Classification of related data and methods in one unit and restricting access by keywords such as ```default```, ```private```, ```public```, ``` protected``` to another objects. |
+| **Encapsulation** | Classification of related data and methods in one unit and restricting access by keywords such as ```default```, ```private```, ```public```, ```protected``` to another objects. |
 | **Abstraction** | Hiding complex implementation details and showing only the necessary features of an object using ``` interface ``` & ``` abstract class ```  |
 | **Inheritance** | Mechanism by which one class can inherit properties and behaviors from another class using ``` extend ``` and restricting access by ``` protected ``` or ``` private ```       |
 | **Polymorphism**| **Many forms**. Ability of different objects to respond, each in its own way, to identical messages (methods). **Example:**  A method called `displayBalance()` can be called on both `Account` and `SavingsAccount` objects, but each class can have its own version of implementation. ``` 1. Compile time (method overloading) 2. Run time (method overriding) ```|
@@ -45,13 +45,15 @@ public class Main {
         ((SavingsAccount) myAccount).interestRate = 3.5;
         myAccount.displayBalance(); // Output: Savings Account Balance: 5000.0, Interest Rate:
 ```
+
 ---
 
 ```mermaid
 flowchart TD
-    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/ProgrammingParadigm.md/'>Previous</a>"])
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-programming-paradigm/ProgrammingParadigm.md/'>Previous</a>"])
 
-    OOAD(["<a href='./Saravana1992-java/java-tutorial/blob/main/2-ooad/OOAD.md/'>Next</a>"])
+    OOAD(["<a href='./Saravana1992-java/java-tutorial/blob/main/2-system-design/OOAD.md/'>Next</a>"])
 
 ```
+
 ---

@@ -13,7 +13,7 @@
 
 ```mermaid
 flowchart TD
-    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-oops/PlatformIndependance.md/'>Previous</a>"])
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-programming-paradigm/PlatformIndependance.md/'>Previous</a>"])
 
 ```
 ---
