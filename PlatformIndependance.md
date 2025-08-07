@@ -26,7 +26,8 @@ flowchart LR
     byteCode("`Compiled Code (e.g., .class)`")
     memory[("` 
     JVM for Win, Mac, Linux
-    (Heap, Stack, Method Area, PC, Native method stacks)`")]
+    Loads .class into JVM memory
+    (Heap, Stack, Method(Class) Area, PC, Native method stacks)`")]
     cpu("`cpu core (Fetch-Decode-Execute Logic)`")
     output("`output channels (Console, GUI, Files, Network etc)`")
 
@@ -43,24 +44,21 @@ flowchart LR
 
 ```
 
-- The **ClassLoader** loads bytecode into the JVM's memory (RAM).
-- The **JIT compiler** (part of the JVM) translates frequently used bytecode from JVM memory into native machine code, just before execution.
-- The **CPU** executes the machine code produced by the JIT.
-- Output is produced and sent to the appropriate device (console, GUI, files, network (api response))
-
 ### JVM Lifecycle and Runtime Behavior
 
 When a Java application is executed (``` java app.class ```). At that moment:
 
-- JVM is loaded into RAM as a separate OS process.
-- JVM allocates its own runtime memory areas:
-- Heap (objects)
-- Stack (method calls)
-- Method Area (class metadata)
-- Program Counter (tracking instructions)
-- Native Method Stack
-- JIT Compiler (compiles bytecode to native machine code for performance)
-- JVM interprets or JIT-compiles bytecode (.class files) into native machine code specific to the host platform.
+- JVM is loaded into RAM as a separate OS process with PID.
+- JVM process allocates its own runtime memory areas:
+
+    | Memory Area         | Purpose                                      |
+    |---------------------|----------------------------------------------|
+    | **Method Area / Metaspace** (class metadata) | Stores bytecode, class metadata, static fields |
+    | **Heap** (objects)            | Stores objects and arrays                    |
+    | **Stack** (method calls)           | Stores method frames and local variables     |
+    | **PC Register** (tracking instructions)    | Tracks current instruction for each thread   |
+    | **Native Method Stack** | Supports native (non-Java) method execution |
+    | **Code Cache**      | Stores JIT-compiled native code              |
 
 ```mermaid
 flowchart TB
@@ -88,6 +86,56 @@ flowchart TB
 
     Bytecode -->|Run with JVM| JVM
 ```
+
+## 🧠 JVM Memory Areas Overview
+
+### 📍 1. **Method Area (Class Area)**
+
+- This is where the **class-level data** is stored, including:
+  - **Bytecode** of methods and constructors
+  - **Runtime constant pool**
+  - **Field and method metadata**
+  - **Static variables**
+- In Java 8 and later, the Method Area is implemented as **Metaspace**, which uses **native memory** (outside the heap).
+
+### 🧪 Example
+
+When you compile a class like:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, JVM!");
+    }
+}
+```
+
+The compiled `.class` file contains bytecode, which the JVM loads into the Method Area during runtime. The `main` method's bytecode is stored here and interpreted or compiled by the JVM.
+
+---
+
+### 📍 2. **Code Cache**
+
+- When the JVM uses **Just-In-Time (JIT) compilation**, it converts frequently used bytecode into **native machine code**.
+- This native code is stored in a special memory region called the **Code Cache**.
+- The Code Cache is divided into segments:
+  - **Non-method segment**: JVM internal code
+  - **Profiled segment**: Hot methods compiled with profiling
+  - **Non-profiled segment**: Methods compiled without profiling
+
+---
+
+### 📍 3. **ClassLoader Subsystem**
+
+- Responsible for loading `.class` files into memory.
+- Works with the Method Area to store class definitions and bytecode.
+
+---
+
+- The **ClassLoader** loads bytecode into the JVM's memory (RAM).
+- The **JIT compiler** (part of the JVM) translates frequently used bytecode from JVM memory into native machine code, just before execution.
+- The **CPU** executes the machine code produced by the JIT.
+- Output is produced and sent to the appropriate device (console, GUI, files, network (api response))
 
 ### What happens if multiple application uses same JRE
 
