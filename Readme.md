@@ -13,7 +13,7 @@ This tutorial bridges **theory and execution**, preparing learners to architect 
 
 ---
 
-## Software using Java
+## Hello, World from Java
 
 Before diving into the tutorial, let’s first understand [what software is](./Software.md) and With the help of [OS](./OS.md), [How the software is running as a OS process or service](./CPUCycleOfProcess.md) and utilizing a underlying computer hardware such as CPU, RAM, Hard disk and etc.
 
@@ -36,7 +36,9 @@ flowchart TD
 
 ---
 
-## 🔍 Key Highlights
+## About this Git Repository
+
+### 🔍 Key Highlights
 
 - 🎯 Explains [**programming paradigms**](./1-programming-paradigm/ProgrammingParadigm.md) — including [Object-Oriented](./1-programming-paradigm/OOPS.md), Event-Driven, Concurrent, and Reactive models  
 - 🧠 Introduces core **design principles** (e.g., SOLID, DRY, KISS, YAGNI) and **design patterns** applicable to modern Java development  
@@ -47,7 +49,7 @@ flowchart TD
     id 'java-library'
 } ``` and does not contain a main class for direct execution. To run or explore the code, please refer to the relevant test cases provided within each module.
 
-## 📦 Multi-Module Gradle Project Hierarchy
+### 📦 Multi-Module Gradle Project Hierarchy
 
 ```mermaid
 
@@ -59,13 +61,6 @@ flowchart LR
     Root --> Collections["<a href='./Saravana1992-java/java-tutorial/blob/main/4-collections/JavaCollections.md'>4-collections</a>"]
     Root --> MultiThreading["<a href='./Saravana1992-java/java-tutorial/blob/main/5-concurrency/ConcurrantProgramming.md'>5-concurrency</a>"]
     Root --> Advanced["<a href='./Saravana1992-java/java-tutorial/blob/main/6-advanced/AdvancedJavaProgramming.md'>6-advanced</a>"]
-```
-
----
-
-```mermaid
-flowchart TD
-    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-programming-paradigm/ProgrammingParadigm.md/'>Next</a>"])
 ```
 
 ---
