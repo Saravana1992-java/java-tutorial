@@ -15,9 +15,11 @@ This tutorial bridges **theory and execution**, preparing learners to architect 
 
 ## Software
 
-Before diving into the tutorial, let’s first understand [what software is](./Software.md) and With the help of [OS](./OS.md), [How the software is running as a OS process or service](./CPUCycleOfProcess.md) and utilizing a underlying computer hardware such as CPU, RAM, Hard disk and etc. How to develop a software application using java?
+Before diving into the tutorial, let’s first understand [what software is](./Software.md) and With the help of [OS](./OS.md), [How the software is running as a OS process or service](./CPUCycleOfProcess.md) and utilizing a underlying computer hardware such as CPU, RAM, Hard disk and etc.
 
-### Software or Application Development with Java
+> This tutorial provides a comprehensive guide on developing software applications using [Java](./PlatformIndependance.md).
+
+### Software application Development with Java
 
 As explained in [Fetch-Decode-Execute](./FetchDecodeExecute.md#-fetch-decode-execute-cycle), any application is ultimately executed by the underlying machine resources—such as the CPU or GPU—as low-level machine instructions.
 
