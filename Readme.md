@@ -13,83 +13,27 @@ This tutorial bridges **theory and execution**, preparing learners to architect 
 
 ---
 
-## Software
+## Software using Java
 
 Before diving into the tutorial, let’s first understand [what software is](./Software.md) and With the help of [OS](./OS.md), [How the software is running as a OS process or service](./CPUCycleOfProcess.md) and utilizing a underlying computer hardware such as CPU, RAM, Hard disk and etc.
-
-> This tutorial provides a comprehensive guide on developing software applications using [Java](./PlatformIndependance.md).
-
-### Software application Development with Java
-
-As explained in [Fetch-Decode-Execute](./FetchDecodeExecute.md#-fetch-decode-execute-cycle), any application is ultimately executed by the underlying machine resources—such as the CPU or GPU—as low-level machine instructions.
-
-The **Operating System (OS)** is the software layer ``` System software ``` that act as bridge between **hardware** and **user applications**. It facilitates the execution of user application written in various programming languages such as C, C++, or Java. So we useually write software native to the OS's programming language.
 
 However, a common challenge arises: since [different operating systems are implemented using different programming languages and architectures](./OS.md/#️-operating-systems--their-language-roots) , developers often need to rewrite the same business logic in multiple programming languages to support different platforms.
 
 **Java** addresses this complexity through its [platform-independent](./PlatformIndependance.md) nature, enabling the principle of **Write Once, Run Anywhere**. This means Java applications can run on any system equipped with a compatible Java Virtual Machine (JVM), regardless of the underlying OS. Understanding JVM helps to write a better app in java.
 
-## ⚙️ JVM and OS Process – How It All Works
-
-## 🧠 What Is an OS Process?
-
-- A **process** is a self-contained unit of execution managed by the **Operating System**
-- It contains:
-  - Its own **memory space** (heap, stack, code, data)
-  - **Thread(s)** executing instructions
-  - Access control to system resources (files, sockets, etc.)
-- OS schedules processes via CPU time slices and manages their lifecycle
-
----
-
-## ☕ JVM as an OS Process
-
-Yes, the **Java Virtual Machine (JVM)** runs as a standard **OS process**. Here's what happens:
-
-1. You execute:
-
-   ```bash
-   java MyApp
-   ```
-
-2. The OS:
-   - Launches a **new process** for the JVM
-   - Allocates memory regions (heap, stack, metaspace)
-   - Assigns process ID (PID), handles scheduling
-   - Loads the JVM executable and starts it
-
-3. JVM:
-   - Loads your compiled `.class` files
-   - Interprets or JIT-compiles bytecode
-   - Runs your application logic via threads within the process
-
-> 🧩 So your Java app runs *inside* the JVM, which itself is a process managed by the OS.
-
----
-
-## 🗂️ Anatomy of JVM Process (in RAM)
+> This tutorial offers a comprehensive guide to developing software applications using ```Java```. While Java is fundamentally rooted in the Object-Oriented Programming paradigm, it is important to recognize and explore other prominent programming paradigms that can enhance software design and implementation. These include:
+>
+> 1. Declarative Programming  
+> 2. Functional Programming  
+> 3. Concurrent Programming  
+> 4. Reactive Programming  
+> 5. Event-Driven Programming, among others.
 
 ```mermaid
-graph TD
-    A[JVM OS Process]
-    A --> B[Threads]
-    A --> C[Heap Memory]
-    A --> D[Stack Memory]
-    A --> E[Method Area]
-    A --> F[Native Method Interface]
+flowchart TD
+    OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-programming-paradigm/ProgrammingParadigm.md/'>programming-paradigm</a>"])
 ```
 
-> Each component is managed inside the boundaries of that one JVM process.
-
----
-
-## 🏁 What Happens When JVM Terminates?
-
-- OS kills the process → all memory is reclaimed
-- All threads stop, and open resources (files, sockets) are closed
-- The process is de-registered from the OS scheduler
-
----
 ---
 
 ## 🔍 Key Highlights
