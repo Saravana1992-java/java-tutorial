@@ -1,9 +1,11 @@
 # Concurrant Programming
 
 ## Thread (True parallelism)
+
 A thread in Java is a lightweight unit of execution within a process. It allows a program to perform multiple tasks concurrently. Each thread runs independently but shares the same memory and resources of the process.
 
 ### User thread
+
 In Java, you can create a thread by:
 
 1. Extending the Thread class, or
@@ -12,14 +14,17 @@ In Java, you can create a thread by:
 Threads are managed by the Java Virtual Machine (JVM) and the underlying operating system, enabling parallel or concurrent execution of code.
 
 ### Daemon thread
+
 - Daemon threads are background service threads that support user threads.
 - Examples: garbage collector, monitoring threads, log flushers.
 - The JVM will exit once all user threads finish—even if daemon threads are still running.
 
 ### Note
+
 - Daemon threads are not suitable for critical tasks like saving data or writing to disk, because they may be killed mid-execution.
 
 # Coroutine (high-concurrency)
+
 A coroutine is a lightweight unit of execution that can suspend and resume its work at specific points, allowing other coroutines to run. Coroutines are managed by the programming language runtime, not the operating system, and are often used for asynchronous, non-blocking, or cooperative multitasking.
 
 ### Coroutines vs Threads
@@ -45,13 +50,16 @@ A coroutine is a lightweight unit of execution that can suspend and resume its w
 | Goal            | Improve responsiveness and resource utilization  | Reduce execution time by dividing work      |
 
 **Summary:**  
+
 - **Concurrency** is about dealing with lots of things at once (structure).
 - **Parallelism** is about doing lots of things at once (execution).
 
 # Mutual exclusion (lock on shared resource)
+
 Mutual exclusion is a concurrency control principle that ensures only one thread or process can access a shared resource or critical section at a time. This prevents race conditions and data inconsistency when multiple threads try to read or modify shared data simultaneously.
 
 # Preemptive scheduling
+
 Preemptive scheduling is a CPU scheduling technique used by operating systems where the scheduler can interrupt (preempt) a running thread or process to give CPU time to another thread or process, usually based on priority or time-slicing.
 
 In preemptive scheduling, a thread does not control how long it runs; the OS can pause it at any time and switch to another thread.
@@ -60,37 +68,48 @@ In Java:
 The JVM relies on the underlying OS’s preemptive scheduling for thread management. This means Java threads can be paused and resumed by the OS at any time, regardless of what the thread is doing (unless it holds a lock or is in a non-interruptible state).
 
 ### Summary
+
 Preemptive scheduling allows the OS to forcibly switch between threads, ensuring all threads get a chance to run.
 
 # Race condition
+
 Race condition is a concurrency problem that occurs when two or more threads access shared data at the same time, and the final outcome depends on the timing or order of their execution. This can lead to unpredictable or incorrect results because the threads "race" to read or write the data.
 
 ### Example
+
 If two threads increment the same counter variable without synchronization, both might read the same value and write back the same result, causing one increment to be lost.
 
 ### Summary
+
 A race condition happens when multiple threads access and modify shared data concurrently without proper synchronization, leading to inconsistent or unexpected results.
 
-# Atomicity 
+# Atomicity
+
 Atomicity is a property of an operation or a set of operations that ensures they are performed as a single, indivisible unit. In the context of multi-threading, an atomic operation cannot be interrupted or observed in an incomplete state by other threads.
 
 ### Example
+
 Incrementing an AtomicInteger using incrementAndGet() is atomic—no other thread can see the variable in a partially updated state.
 In contrast, count++ is not atomic because it involves multiple steps (read, increment, write) that can be interleaved by other threads.
 
 ### Summary
+
 Atomicity guarantees that a critical operation is completed fully or not at all, preventing race conditions in concurrent programming.
 
 # Volatile (No gurantee for atomicity)
+
 The volatile keyword in Java ensures visibility, not atomicity.
 
-### Visibility 
+### Visibility
+
 When a variable is declared volatile, changes made by one thread are immediately visible to other threads.
 
-### Atomicity 
+### Atomicity
+
 Means an operation is performed as a single, indivisible step.
 
 ### Why volatile is not atomic?
+
 - Operations like count++ are not atomic; they involve multiple steps (read, modify, write).
 - Declaring count as volatile only ensures that threads see the latest value, but does not prevent race conditions during compound actions.
 
@@ -100,7 +119,9 @@ Means an operation is performed as a single, indivisible step.
 volatile int count = 0;
 count++; // Not atomic: read, increment, write (can be interleaved by threads)
 ```
+
 ### Summary
+
 volatile guarantees visibility, but does not make compound operations atomic. For atomicity, use synchronization or atomic classes like AtomicInteger.
 
 # Deadlock
@@ -317,7 +338,8 @@ Starvation happens when a thread is continuously denied access to resources, pre
 flowchart TD
     COL(["<a href='./Saravana1992-java/java-tutorial/blob/main/4-collections/JavaCollections.md/'>Previous</a>"])
 
-    MT(["<a href='./Saravana1992-java/java-tutorial/blob/main/5-multi-threading/concurrency.md/'>Next</a>"])
+    MT(["<a href='./Saravana1992-java/java-tutorial/blob/main/5-concurrency/concurrency.md/'>Next</a>"])
 
 ```
+
 ---

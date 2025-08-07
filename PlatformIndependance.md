@@ -1,6 +1,6 @@
 # Java
 
-**Java** is a **high-level**, **object-oriented**, **platform-independent** programming language developed by Sun Microsystems (now owned by Oracle). It is widely used for building **cross-platform** applications, from desktop and web to mobile and enterprise systems.
+**Java** is a **high-level**, **object-oriented**, **platform-independent** programming language developed by Sun Microsystems (now owned by Oracle). It is widely used for building **cross-platform** applications, from **desktop and web to mobile and enterprise systems**.
 
 ## Platform independance
 
@@ -27,11 +27,11 @@ flowchart LR
     memory[("` 
     JVM for Win, Mac, Linux
     (Heap, Stack, Method Area, PC, Native method stacks)`")]
-    cpu("`cpu core (Executes Logic)`")
+    cpu("`cpu core (Fetch-Decode-Execute Logic)`")
     output("`output channels (Console, GUI, Files, Network etc)`")
 
-    src e1@ == Compilation ==> byteCode
-    byteCode e2@ == Loading ==> memory
+    src e1@ == Compilation (javac app.java) ==> byteCode
+    byteCode e2@ == Launch (java app.class) ==> memory
     cpu e3@ == Fetching (JIT) ==> memory
     cpu e4@ == Result ==> output
 
@@ -39,6 +39,7 @@ flowchart LR
     e2@{ animate: false }
     e3@{ animate: true }
     e4@{ animate: true }
+
 
 ```
 
@@ -148,71 +149,3 @@ flowchart TD
 ```
 
 ---
-
-Absolutely, Saravana! Let’s break this down systematically so it fits right into your understanding of JVM internals and operating systems.
-
----
-
-# ⚙️ JVM and OS Process – How It All Works
-
-## 🧠 What Is an OS Process?
-
-- A **process** is a self-contained unit of execution managed by the **Operating System**
-- It contains:
-  - Its own **memory space** (heap, stack, code, data)
-  - **Thread(s)** executing instructions
-  - Access control to system resources (files, sockets, etc.)
-- OS schedules processes via CPU time slices and manages their lifecycle
-
----
-
-## ☕ JVM as an OS Process
-
-Yes, the **Java Virtual Machine (JVM)** runs as a standard **OS process**. Here's what happens:
-
-1. You execute:
-
-   ```bash
-   java MyApp
-   ```
-
-2. The OS:
-   - Launches a **new process** for the JVM
-   - Allocates memory regions (heap, stack, metaspace)
-   - Assigns process ID (PID), handles scheduling
-   - Loads the JVM executable and starts it
-
-3. JVM:
-   - Loads your compiled `.class` files
-   - Interprets or JIT-compiles bytecode
-   - Runs your application logic via threads within the process
-
-> 🧩 So your Java app runs *inside* the JVM, which itself is a process managed by the OS.
-
----
-
-## 🗂️ Anatomy of JVM Process (in RAM)
-
-```mermaid
-graph TD
-    A[JVM OS Process]
-    A --> B[Threads]
-    A --> C[Heap Memory]
-    A --> D[Stack Memory]
-    A --> E[Method Area]
-    A --> F[Native Method Interface]
-```
-
-> Each component is managed inside the boundaries of that one JVM process.
-
----
-
-## 🏁 What Happens When JVM Terminates?
-
-- OS kills the process → all memory is reclaimed
-- All threads stop, and open resources (files, sockets) are closed
-- The process is de-registered from the OS scheduler
-
----
-
-Would you like to dive deeper into how JVM threads interact with native OS threads, or explore how container runtimes isolate JVM processes across nodes? I can sketch that too, especially if you're thinking in terms of Kubernetes or Podman deployments! 🚀
