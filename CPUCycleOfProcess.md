@@ -80,7 +80,7 @@ flowchart TD
     B --> C[Request OS Services]
     C --> D[OS Service Layer]
     D --> E[File System / Memory / I/O]
-    B --> F[Scheduled by CPU]
+    B --> F[Scheduled by OS]
     F --> G[CPU Cycle: Fetch → Decode → Execute → Store]
     G --> H[Process Continues or Waits]
     H -->|Needs I/O| C
