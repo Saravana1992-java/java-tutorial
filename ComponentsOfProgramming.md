@@ -59,6 +59,7 @@
     1. Conditional statements ``` if(expression)...else ```
     2. Decission making statments ```switch(options)... case option:```
     3. looping ```while(expression) & do...while(expression)```,  ```for()```, ``` iterator. ```
+    4. Assignments ```int result = methodCal()```
 
 ### 🔧 Basic Structure
 
