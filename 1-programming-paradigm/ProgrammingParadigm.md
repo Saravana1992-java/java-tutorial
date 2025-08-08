@@ -4,6 +4,7 @@ A **Programming paradigm** is an idea - a way of thinking about **structuring co
 
 - **Examples:** Procedural, Object-Oriented (OOP), Functional, Event-Driven.
 - These are high-level categories of programming models.
+- Although Java is fundamentally rooted in the Object-Oriented Programming paradigm, it's essential to understand the additional paradigms that modern versions of Java increasingly incorporate.
 
 ## 🆚 Popular Programming Paradigms
 
