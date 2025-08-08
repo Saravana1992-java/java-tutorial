@@ -1,5 +1,19 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.sourcePaths": [
+        "1-programming-paradigm/src/main/java",
+        "1-programming-paradigm/src/test/java",
+        "2-system-design/src/main/java",
+        "2-system-design/src/test/java",
+        "3-generics/src/main/java",
+        "3-generics/src/test/java",
+        "4-collections/src/main/java",
+        "4-collections/src/test/java",
+        "5-concurrency/src/main/java",
+        "5-concurrency/src/test/java",
+        "6-advanced/src/main/java",
+        "6-advanced/src/test/java"
+    ]
 }
