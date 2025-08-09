@@ -24,10 +24,16 @@ Here are the foundational principles that define FP:
 ### 3. **First-Class and Higher-Order Functions**
 
 - Functions are treated as values:
+  - Assigned to variables.
   - Can be passed as arguments.
   - Returned from other functions.
-  - Assigned to variables.
-- Higher-order functions take other functions as parameters or return them.
+  - Stored in data structures
+  
+- A higher-order function (HOF) is a function that does at least one of the following:
+
+  - Takes one or more functions as arguments
+  - Returns a function as its result
+    This means functions are treated as values—passed around, composed, and returned just like data.
 
 ### 4. **Function Composition**
 
@@ -41,34 +47,66 @@ Here are the foundational principles that define FP:
 
 ---
 
-## 🧠 Functional Programming in Java
-
-Java isn’t a purely functional language, but since **Java 8**, it has adopted many FP features:
-
-| Feature | Description | Example |
-|--------|-------------|---------|
-| **Lambda Expressions** | Anonymous functions for concise behavior definition | `(x) -> x * x` |
-| **Streams API** | Declarative data processing pipeline | `list.stream().filter(...).map(...).collect(...)` |
-| **Functional Interfaces** | Interfaces with a single abstract method | `Predicate<T>`, `Function<T,R>`, `Consumer<T>` |
-| **Optional** | Avoids null checks using monadic behavior | `Optional.ofNullable(value).map(...).orElse(...)` |
-| **Method References** | Shorthand for calling existing methods | `String::toUpperCase` |
-
----
-
-## ⚙️ Benefits of FP in Java
-
-- ✅ **Improved readability and maintainability**
-- ✅ **Better concurrency and parallelism**
-- ✅ **Fewer bugs due to immutability and pure functions**
-- ✅ **Easier testing and debugging**
-
----
-
 ## 🧩 When to Use Functional Programming
 
 - Data transformation pipelines (e.g., filtering, mapping, reducing)
 - Event-driven or reactive systems
 - Concurrent or parallel processing
 - Clean separation of concerns in business logic
+
+---
+
+## Functional Interface
+
+A **Functional Interface** in Java is an interface that contains **exactly one abstract method**.
+
+---
+
+## 🔍 Definition
+
+A [**Functional Interface**](./FunctionalInterface.md) provides a target type for lambda expressions and method references. It can have:
+
+- One **abstract method** (required)
+- Any number of **default** or **static** methods
+- Annotated with `@FunctionalInterface` (optional but recommended)
+
+### ✅ Example
+
+```java
+@FunctionalInterface
+interface Operation {
+    int apply(int a, int b);
+}
+
+Operation add;
+
+// Before Java 8 without Lambda expression
+add = new Operation() {
+    @Override
+    public int apply(int a, int b) {
+        return a + b;
+    }
+};
+int result = compute(5, 3, add); // Passing add object as argument
+
+// After Java 8 with Lambda expression - avoid complexity of strict class structure due to OOPS 
+add = (a, b) -> a + b;
+int result = compute(5, 3, add); // Passing behavior as data argument
+
+public static int compute(int x, int y, Operation op) {
+    return op.apply(x, y);
+}
+
+```
+
+`@FunctionalInterface` annotation helps the compiler enforce the rule of **one abstract method**:
+
+If you accidentally add a second abstract method, the compiler will throw an error.
+You can now use it like this:
+
+```java
+Converter<String, Integer> stringToInt = s -> Integer.parseInt(s);
+System.out.println(stringToInt.convert("123")); // Output: 123
+```
 
 ---

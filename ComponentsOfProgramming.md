@@ -1,8 +1,8 @@
 # 🧩 The Core Components of Programming
 
-## 1️⃣ Data
+## 1️⃣ Data (Noun)
 
-**Data** is the foundation of computer software. It represents the essential **information** that a program processes, stores, or transmits. Effective software development begins with the careful **identification** and **classification** of data.
+**Data** is the foundation of computer software and [It's First-class Citizens (or first-class object)]((#-what-are-first-class-citizens-in-programming)). It represents the essential **information** that a program processes, stores, or transmits. Effective software development begins with the careful **identification** and **classification** of data.
 
 ### Identifying and Classifying Data
 
@@ -48,9 +48,7 @@
     };
     ```
 
----
-
-## 2️⃣ Function
+## 2️⃣ Function (Verb)
 
 - A **function** is a **basic unit of work** performed on the the identified data. For example, in a banking application, a function like `transact(Account* fromAccount, Account* toAccount, double amount)` performs a transaction from one account to another.
 
@@ -90,5 +88,144 @@ class Account {
         }
     }
 ```
+
+### Note
+
+Data is often passed between functions, procedures, or methods to improve modularity and maintain consistent state in Java.
+
+- Java is always [**pass-by-value**](./PassByValueVsPassByReference.md).
+- For objects, the reference to the object is passed by value—meaning the method receives a copy of the reference, not the actual object or the original reference itself.
+
+#### 🧠 What Are First-Class Citizens in Programming?
+
+In programming, a **first-class citizen** (or first-class object) refers to entities that can be:
+
+- assigned to a variable
+- passed as an argument to a function
+- returned from a function
+- stored in data structures
+
+In modern-paradigms like **Functional Programming Paradigm** even Functions are **first-class citizen** (or first-class function). That means, Functions can be,
+
+- assigned to a variable
+- passed as an argument to a function
+- returned from a function
+- stored in data structures.
+
+These are implemented differently in different Programming languages.
+
+Since Java is **strictly object-oriented**, and **before Java 8**:
+
+- You couldn’t pass a function directly.
+- You had to wrap behavior inside an object (e.g., anonymous classes).
+
+> [**Functional interfaces**](#-functionalinterface-example) solve this by giving the compiler a **type** to associate with a lambda expression.
+---
+
+### 📦 Storing Functions in Data Structures
+
+Here’s how it works across a few languages:
+
+#### **JavaScript**
+
+```javascript
+const callbacks = [
+  () => console.log("First"),
+  () => console.log("Second"),
+  () => console.log("Third")
+];
+
+callbacks.forEach(fn => fn()); // Executes all callbacks
+```
+
+#### **Python**
+
+```python
+callbacks = [
+    lambda: print("First"),
+    lambda: print("Second"),
+    lambda: print("Third")
+]
+
+for fn in callbacks:
+    fn()  # Executes each lambda
+```
+
+#### **Java (8+)**
+
+```java
+import java.util.List;
+import java.util.function.Consumer;
+
+List<Consumer<String>> callbacks = List.of(
+    s -> System.out.println("Hello " + s),
+    s -> System.out.println("Goodbye " + s)
+);
+
+callbacks.forEach(fn -> fn.accept("Saravana"));
+```
+
+You can also store them in maps:
+
+```java
+Map<String, Runnable> actions = Map.of(
+    "start", () -> System.out.println("Starting..."),
+    "stop", () -> System.out.println("Stopping...")
+);
+
+actions.get("start").run();
+```
+
+---
+
+### 🧠 Why This Is Powerful
+
+- **Dynamic dispatch**: Choose behavior at runtime based on keys or conditions.
+- **Plugin architecture**: Store handlers or strategies in a registry.
+- **Event systems**: Map events to handlers.
+- **Functional pipelines**: Chain transformations or validations.
+
+---
+
+### 🧩 Why It Matters
+
+Treating callbacks as first-class citizens enables:
+
+- **Higher-order functions** (functions that take or return other functions)
+- **Functional composition**
+- **Event-driven and asynchronous programming**
+- **Cleaner, modular code**
+
+---
+
+### 🔧 FunctionalInterface example
+
+```java
+@FunctionalInterface
+interface Operation {
+    int apply(int a, int b);
+}
+
+Operation add;
+
+// Before Java 8 without Lambda expression
+add = new Operation() {
+    @Override
+    public int apply(int a, int b) {
+        return a + b;
+    }
+};
+int result = compute(5, 3, add); // Passing add object as argument
+
+// After Java 8 with Lambda expression - avoid complexity of strict class structure due to OOPS 
+add = (a, b) -> a + b;
+int result = compute(5, 3, add); // Passing behavior as data argument
+
+public static int compute(int x, int y, Operation op) {
+    return op.apply(x, y);
+}
+```
+
+Here, `add` is a **function** passed as a **value** to `compute`. That’s **passing behavior as data**.
 
 ---
