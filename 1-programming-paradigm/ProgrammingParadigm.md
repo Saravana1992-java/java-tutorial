@@ -16,9 +16,11 @@ A **Programming paradigm** is an idea - a way of thinking about **structuring co
 | [**Declarative**](./ImperativeVsDeclarativeProgramming.md)        | Think in goals                                   | Describe what to achieve, not how            | **SQL, HTML, Terraform, Ansible** — Great for simplifies configuration and data querying              |
 | [**Parallel**](./ParallelVsConcurrentProgramming.md)           | Think in distributed data processing             | Split tasks for simultaneous execution       | **OpenMP, CUDA, Apache Spark, Dask** — Accelerates compute-heavy tasks like ML and analytics, Scientific computing, big data processing |
 | [**Concurrent**](./ParallelVsConcurrentProgramming.md)         | Think in overlapping tasks                       | Manage shared state across threads           | **Java (Executors), Go (goroutines), Python (threading)** — Great for Multi-threaded apps, server backends |
-| **Functional**         | Think in transformations                         | Use pure functions and immutability          | **Haskell, Scala, F#, JavaScript (FP libs)** — Great for Data pipelines, concurrent-safe systems |
+| [**Functional**](./FunctionalProgramming.md)         | Think in transformations                         | Use pure functions and immutability          | **Haskell, Scala, F#, JavaScript (FP libs)** — Great for Data pipelines, concurrent-safe systems |
 | **Event-Driven**       | Think in reactions                               | Respond to asynchronous events               | **Node.js, JavaScript (DOM), Kafka, RxJS** — Ideal for UIs, microservices, and real-time apps |
 | **Reactive**           | Think in data streams and change propagation     | Model logic as flows of reactive values      | **RxJava, Reactor (Spring), Akka Streams, Angular** — Great for Real-time UIs, stock tickers, collaborative apps |
+
+> Once the most suitable programming paradigm is identified for the given requirement, we initiate implementation through an iterative and collaborative approach. This enables early failure detection, timely delivery, and ensures high-quality outcomes. We follow a well-established [Software Development Life Cycle (SDLC)](./SDLC.md) to guide and structure the process.
 
 ---
 

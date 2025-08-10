@@ -9,37 +9,44 @@ The **Software Development Life Cycle (SDLC)** is a structured process used by s
 SDLC typically consists of the following key phases:
 
 ### 1️⃣ Planning & Requirement Analysis
+
 - Define project scope, goals, and constraints.
 - Gather requirements from stakeholders.
 - Conduct feasibility studies (technical, operational, financial).
 - Output: **Software Requirement Specification (SRS)** document.
 
 ### 2️⃣ Defining Requirements
+
 - Finalize and document functional and non-functional requirements.
 - Get stakeholder approval on the SRS.
 - Output: Detailed requirement documentation.
 
 ### 3️⃣ Designing the Architecture
+
 - Create high-level and low-level design documents.
 - Define system architecture, data flow, and module interactions.
 - Output: **Design Document Specification (DDS)**.
 
 ### 4️⃣ Development / Coding
+
 - Developers write code based on DDS.
 - Follow coding standards and use appropriate tools (IDEs, compilers, debuggers).
 - Output: Source code and build artifacts.
 
 ### 5️⃣ Testing
+
 - Perform unit, integration, system, and acceptance testing.
 - Identify and fix bugs to ensure software meets quality standards.
 - Output: Test reports and validated software.
 
 ### 6️⃣ Deployment
+
 - Release software to production or staging environments.
 - May involve phased rollout or beta testing.
 - Output: Live software accessible to users.
 
 ### 7️⃣ Maintenance
+
 - Monitor performance and fix post-deployment issues.
 - Apply updates, patches, and enhancements.
 - Output: Stable and evolving software product.
@@ -74,4 +81,5 @@ flowchart TD
     OOPS(["<a href='./Saravana1992-java/java-tutorial/blob/main/1-programming-paradigm/ProgrammingParadigm.md/'>Previous</a>"])
 
 ```
+
 ---
