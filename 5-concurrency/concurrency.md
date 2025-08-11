@@ -1,109 +1,26 @@
-# Java Concurrancy
+# 🧵 Java Concurrency & Parallelism Comparison
 
-## Executor Framework
-
-The Executor Framework decouples task submission from task execution, abstracting away thread management. Instead of manually creating and starting threads, you submit tasks to an executor which handles threading efficiently
-
-The Executor Framework provides a high-level API for managing threads and asynchronous task execution.
-
-### Core Interfaces
-
-- **Executor:** Basic interface for executing tasks.
-- **ExecutorService:** Extends Executor, adds lifecycle management and task submission with results.
-- **ScheduledExecutorService:** Supports scheduling tasks to run after a delay or periodically.
-
-### Executor Framework Implementation Hierarchy
-
-```
-                +------------------+
-                |    Executor      |
-                +------------------+
-                         |
-                         v
-                +----------------------+     +------------------+
-                |  ExecutorService     | --> |   ForkJoinPool   |
-                +----------------------+     +------------------+
-                         |
-         +---------------+-------------------+
-         |                                   |
-         v                                   v
-+--------------------------+      +-----------------------------+
-| ScheduledExecutorService |      |      ThreadPoolExecutor     |
-+--------------------------+      +-----------------------------+
-         |                                   ^
-         v                                   |
-+-------------------------------+            |
-| ScheduledThreadPoolExecutor   |<------------+
-+-------------------------------+
-         ^
-         |
-+----------------------+
-| Executors (factory)  |
-+----------------------+
-         |
-         v
-+-----------------------------+
-| newFixedThreadPool()        |
-| newCachedThreadPool()       |
-| newSingleThreadExecutor()   |
-| newScheduledThreadPool()    |
-| newWorkStealingPool()       |
-+-----------------------------+
-
-
-```
-
-- **Executor** is the root interface.
-- **ExecutorService** extends Executor.
-- **ScheduledExecutorService** extends ExecutorService.
-- **ThreadPoolExecutor**, **ScheduledThreadPoolExecutor**, and **ForkJoinPool** are main implementations.
-- **Executors** is a utility class providing factory methods for common executor types.
-
-# ExecutorService
-
-# Difference between Runnable and Callable
-
-| Feature         | Runnable                          | Callable<V>                        |
-|-----------------|-----------------------------------|------------------------------------|
-| Return value    | Cannot return a result            | Can return a result (of type V)    |
-| Exception       | Cannot throw checked exceptions   | Can throw checked exceptions       |
-| Method          | `void run()`                      | `V call()`                         |
-| Usage           | Used with `Thread` or `Executor`  | Used with `ExecutorService`        |
-| Future support  | No direct support                 | Returns a `Future<V>` when submitted|
-
-**Example:**
-
-```java
-// Runnable example
-Runnable task = () -> System.out.println("Running task");
-
-// Callable example
-Callable<Integer> task = () -> {
-    return 42;
-};
-```
-
-### Step-by-step Explanation
-
-1. **Create ExecutorService:**  
-   A fixed thread pool with 2 threads is created to execute tasks concurrently.
-
-2. **Submit Callable Tasks:**  
-   Five `Callable<Integer>` tasks are submitted. Each task prints its start and end, sleeps for 300ms, and returns a result.
-
-3. **Collect Results:**  
-   The main thread waits for all tasks to complete using `future.get()` and prints each result.
-
-4. **Shutdown Executor:**  
-   `shutdown()` is called to stop accepting new tasks.  
-   `awaitTermination()` waits for all tasks to finish before exiting.
-
-**Note:**  
-
-- `shutdown()` does not kill threads immediately; it lets running and queued tasks finish.
-- `Callable` allows tasks to return results and throw checked exceptions, unlike `Runnable`.
+| # | Model / API | What It Is | How to Implement | Code Example | When to Choose |
+|---|-------------|------------|------------------|--------------|----------------|
+| 1 | **Runnable** | Interface for tasks without return value | Implement `run()` and pass to `Thread` or `Executor` | `new Thread(() -> { /* task */ }).start();` | Simple CPU-bound tasks; fire-and-forget logic |
+| 2 | **Callable** | Interface for tasks with return value | Implement `call()` and submit to `ExecutorService` | `executor.submit(() -> "result");` | When task needs to return a result or throw checked exceptions |
+| 3 | **Thread** | Class representing a native thread | Pass `Runnable` to constructor or extend `Thread` | `new Thread(new MyRunnable()).start();` | Direct thread control; low-level threading (rarely preferred now) |
+| 4 | **Virtual Thread**<br>(Project Loom) | Lightweight JVM-managed thread | `Thread.startVirtualThread(() -> {})` or `Thread.ofVirtual().start()` | `Thread.startVirtualThread(() -> { /* blocking I/O */ });` | High-concurrency I/O-bound apps; simplify async logic |
+| 5 | **Executor / ExecutorService** | Framework for managing thread pools | Use `Executors.newFixedThreadPool()` or `newSingleThreadExecutor()` | `executor.execute(() -> { /* task */ });` | Structured thread management; decouple task from thread |
+| 6 | **ScheduledExecutorService** | Scheduler variant of Executor | Use `schedule()` or `scheduleAtFixedRate()` | `scheduler.schedule(task, 1, TimeUnit.SECONDS);` | Time-based task execution; cron-like scheduling |
+| 7 | **ForkJoinPool** | Pool for divide-and-conquer parallelism | Extend `RecursiveTask` or `RecursiveAction` | `pool.invoke(new MyRecursiveTask());` | CPU-bound recursive tasks; parallel data processing |
+| 8 | **CompletableFuture** | Async computation framework | Chain tasks with `thenApply`, `thenCompose`, etc. | `CompletableFuture.supplyAsync(() -> "result")` | Async workflows; orchestration of dependent tasks |
+| 9 | **Project Reactor (Flux/Mono)** | Reactive streams framework | Use `Flux.just()`, `Mono.fromCallable()`, etc. | `Flux.range(1, 10).map(i -> i * 2)` | Event-driven, streaming, backpressure-sensitive systems |
 
 ---
+
+## 🧠 Additional Notes
+
+- **Backpressure**: Only **Reactor** (Flux/Mono) has built-in support. Virtual threads require **manual handling** (e.g., queues, semaphores).
+- **Parallelism vs Concurrency**:
+  - *Concurrency*: Multiple tasks in progress (may not run simultaneously).
+  - *Parallelism*: Tasks run simultaneously (true multi-core execution).
+- **Virtual Threads** simplify concurrency but don’t replace reactive streams in **streaming or backpressure-critical** systems.
 
 ```mermaid
 flowchart TD

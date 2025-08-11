@@ -19,10 +19,12 @@
 - **ExecutorService**: A flexible abstraction — can be used for both concurrency (single-threaded executor) and parallelism (fixed/thread pool).
 - **Parallel Streams / ForkJoinPool**: Explicitly designed for **parallel execution** of CPU-bound tasks.
 
+> Learn more about Java concurrency and parallelism [here](./).
+
 ---
 
 ## 🧠 Summary
 
 - **Concurrency** is about managing multiple tasks efficiently. OS or runtime schedules tasks to share CPU resources.
 
-- **Parallelism** is about executing tasks simultaneously for speed. OS or runtime assigns tasks to separate cores for true parallel execution
+- **Parallelism** is about executing tasks simultaneously for speed. OS or runtime assigns tasks to separate cores for true parallel execution.
